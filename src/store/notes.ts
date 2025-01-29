@@ -1,14 +1,12 @@
 import { Note } from "./../types/note.js";
+import { v4 as uuidv4 } from "uuid";
 
 let notes: Note[] = [];
-
-// Generate a unique ID
-const generateId = (): string => Math.random().toString(36).substr(2, 9);
 
 export const getNotes = (): Note[] => notes;
 
 export const addNote = (text: string): Note => {
-  const newNote: Note = { id: generateId(), text };
+  const newNote: Note = { id: uuidv4(), text };
   notes.push(newNote);
   return newNote;
 };
